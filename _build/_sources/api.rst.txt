@@ -1,0 +1,45 @@
+API
+===
+
+:toctree:
+    .. autofunction:: summ_re.process.align_whisper.align_whisper
+    .. autofunction:: summ_re.process.annotate_ipu.annotate_ipus
+    .. autofunction:: summ_re.process.combine_ipu_annotation.combine_annotation
+    .. autofunction:: summ_re.process.ipu_from_pyannote.ipu_from_pyannote
+    .. autofunction:: summ_re.process.palign.palign
+    .. autofunction:: summ_re.process.prosody.get_prosodic_info
+    .. autofunction:: summ_re.process.pyannote_annotate.pyannote_annotate
+    .. autofunction:: summ_re.process.recover_pauses.recover_pauses
+
+    .. autofunction:: summ_re.scripts.anonymization.anonymize.anonymize
+    .. autofunction:: summ_re.scripts.anonymization.find_candidates.find
+
+    .. autofunction:: summ_re.scripts.overlap.backchannel.detect
+
+    .. autofunction:: summ_re.scripts.overlap.by_type.detect
+    .. autofunction:: summ_re.scripts.overlap.complete.detect_by_step
+
+    .. autofunction:: summ_re.scripts.pipeline.get_main_speaker.get_main_speaker
+
+    .. autofunction:: summ_re.scripts.tools.conversion.chunk_to_textgrid
+
+    .. autofunction:: summ_re.utils.conversion.csv_to_textgrid
+    .. autofunction:: summ_re.utils.conversion.textgrid_to_csv
+    .. autofunction:: summ_re.utils.conversion.textgrid_to_csv
+    .. autofunction:: summ_re.utils.conversion.filter_out_segment_text_whisper_hallucinations
+    .. autofunction:: summ_re.utils.conversion.clean_whisper
+    .. autofunction:: summ_re.utils.conversion.linstt_to_csv
+    .. autofunction:: summ_re.utils.conversion.pyannote_to_csv
+    .. autofunction:: summ_re.utils.conversion.du_to_csv
+    .. autofunction:: summ_re.utils.conversion.fill_missing
+    .. autofunction:: summ_re.utils.conversion.merge_rows
+    .. autofunction:: summ_re.utils.conversion.du_to_tok
+    .. autofunction:: summ_re.utils.conversion.cid_du_to_tok
+
+
+
+
+
+
+
+

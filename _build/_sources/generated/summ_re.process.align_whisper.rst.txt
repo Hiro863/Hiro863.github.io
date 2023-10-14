@@ -1,0 +1,29 @@
+﻿summ\_re.process.align\_whisper
+===============================
+
+.. automodule:: summ_re.process.align_whisper
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      align_whisper
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

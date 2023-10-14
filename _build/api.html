@@ -1,0 +1,798 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Welcome to summ_re’s documentation!" href="index.html" />
+
+    <!-- Generated with Sphinx 7.2.5 and Furo 2023.09.10 -->
+        <title>API - summ_re 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">summ_re 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">summ_re 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">API</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="api">
+<h1>API<a class="headerlink" href="#api" title="Link to this heading">#</a></h1>
+<dl class="field-list">
+<dt class="field-odd">toctree<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="py function">
+<dt class="sig sig-object py" id="summ_re.process.align_whisper.align_whisper">
+<span class="sig-prename descclassname"><span class="pre">summ_re.process.align_whisper.</span></span><span class="sig-name descname"><span class="pre">align_whisper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipu_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tier_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'transcription'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">julius_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_words</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_hallu_regex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.process.align_whisper.align_whisper" title="Link to this definition">#</a></dt>
+<dd><p>Compare IPU annotation and timestamped Whisper annotation If the word-level timestamps (partially) overlap
+with IPU interval add that word to the IPU interval to create a SPPAS compatible transcription file,
+where <cite>annotation</cite> corresponds to utterances found in that IPU</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the Whisper timestamped annotation (in CSV format)</p></li>
+<li><p><strong>out_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to save output annotation (in CSV format)</p></li>
+<li><p><strong>ipu_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the IPU annotation (in CSV format)</p></li>
+<li><p><strong>min_length</strong> (<em>float</em>) – minimum length for the annotation intervals to keep, default = 0.0 s</p></li>
+<li><p><strong>tier_name</strong> (<em>str</em>) – name of the tier, default = ‘transcription’ (this is required for Julius based alignment later</p></li>
+<li><p><strong>julius_limit</strong> (<em>int</em>) – Julius accepts tokens up to 150. Set this parameter to limit the number of tokens in a single</p></li>
+<li><p><strong>keep_words</strong> (<em>bool</em>) – if true keep word level representation, otherwise concatenate words into IPU level phrases</p></li>
+<li><p><strong>remove_hallu_regex</strong> (<em>bool</em>) – if true, removes hallucination markers [*]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p>IPU (it will split them up to multiple IPUs). Note that due to SPPAS wrapper which may change the final number of
+tokens slightly, setting this value to 150 will still cause an error. The default value set here,
+100, seems to work.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.process.annotate_ipu.annotate_ipus">
+<span class="sig-prename descclassname"><span class="pre">summ_re.process.annotate_ipu.</span></span><span class="sig-name descname"><span class="pre">annotate_ipus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_sil</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_ipu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_ipus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_mean_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manual_thresholds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.process.annotate_ipu.annotate_ipus" title="Link to this definition">#</a></dt>
+<dd><p>Create an IPU annotation using SPPAS SearchIPUs for the file <code class="docutils literal notranslate"><span class="pre">in_file</span></code> and save it to <code class="docutils literal notranslate"><span class="pre">out_file</span></code></p>
+<p>Takes searchIPU parameters <code class="docutils literal notranslate"><span class="pre">min_sil</span></code>, <code class="docutils literal notranslate"><span class="pre">min_ipu</span></code>, <code class="docutils literal notranslate"><span class="pre">shift_start</span></code> and <code class="docutils literal notranslate"><span class="pre">shift_end</span></code></p>
+<p>Checks if the overall output is ‘reasonable’ or suspicious by checking number of IPUs and IPU mean duration
+If the annotation looks suspicious the output is saved in the <cite>error_log</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the input file, must be of WAV format</p></li>
+<li><p><strong>out_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the output file, must have the extension in <code class="docutils literal notranslate"><span class="pre">csv</span></code></p></li>
+<li><p><strong>error_log</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to which error CSV file will be saved in the format, name: str, n_ipus: int, ok: bool</p></li>
+<li><p><strong>min_sil</strong> (<em>float</em>) – minimum duration of a silence</p></li>
+<li><p><strong>min_ipu</strong> (<em>float</em>) – minimum duration of an IPU</p></li>
+<li><p><strong>shift_start</strong> (<em>float</em>) – start boundary shift value</p></li>
+<li><p><strong>shift_end</strong> (<em>float</em>) – end boundary shift value</p></li>
+<li><p><strong>min_n_ipus</strong> (<em>int</em>) – minimum number of IPUs to be found to be considered ‘reasonable’</p></li>
+<li><p><strong>min_mean_duration</strong> (<em>int</em>) – minimum duration of mean IPU duration to be considered ‘reasonable’</p></li>
+<li><p><strong>manual_thresholds</strong> (<em>Union</em><em>[</em><em>None</em><em>, </em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to manual annotation if exists, else None</p></li>
+<li><p><strong>rms</strong> (<em>Union</em><em>[</em><em>Non</em><em>, </em><em>int</em><em>]</em>) – RMS value to give to the SPPAS</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.process.combine_ipu_annotation.combine_annotation">
+<span class="sig-prename descclassname"><span class="pre">summ_re.process.combine_ipu_annotation.</span></span><span class="sig-name descname"><span class="pre">combine_annotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tier_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'IPUs'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.process.combine_ipu_annotation.combine_annotation" title="Link to this definition">#</a></dt>
+<dd><p>Take SPPAS IPU annotation and pyannote IPU annotation and combine by taking only those intervals that predict
+IPUs and fill the rest with silence</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the SPPAS IPU file</p></li>
+<li><p><strong>out_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the combined IPU file</p></li>
+<li><p><strong>reference_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the pyannote IPU file</p></li>
+<li><p><strong>tier_name</strong> (<em>str</em>) – name of the tier</p></li>
+<li><p><strong>min_duration</strong> (<em>float</em>) – minimum IPU interval duration, default = 0.0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.process.ipu_from_pyannote.ipu_from_pyannote">
+<span class="sig-prename descclassname"><span class="pre">summ_re.process.ipu_from_pyannote.</span></span><span class="sig-name descname"><span class="pre">ipu_from_pyannote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_speaker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tier_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pyannote-IPU'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.process.ipu_from_pyannote.ipu_from_pyannote" title="Link to this definition">#</a></dt>
+<dd><p>Create an IPU annotation by taking the intervals marked with <code class="docutils literal notranslate"><span class="pre">main_speaker</span></code> by pyannote</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the pyannote CSV file</p></li>
+<li><p><strong>out_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the CSV file with IPU annotation (SPPAS format)</p></li>
+<li><p><strong>main_speaker</strong> (<em>str</em>) – string corresponding to the main speaker ID (e.g. <code class="docutils literal notranslate"><span class="pre">SPEAKER_00</span></code>) or <code class="docutils literal notranslate"><span class="pre">NA</span></code></p></li>
+<li><p><strong>tier_name</strong> (<em>str</em>) – name of the tier</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.process.palign.palign">
+<span class="sig-prename descclassname"><span class="pre">summ_re.process.palign.</span></span><span class="sig-name descname"><span class="pre">palign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trs_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.process.palign.palign" title="Link to this definition">#</a></dt>
+<dd><p>Perform Julius based forced alignment of transcription at token and phoneme level
+This requires</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>normalization of the transcription text</p></li>
+<li><p>phonetization of the transcription text with a dictionary</p></li>
+<li><p>calling Julius through SPPAS for forced alignment</p></li>
+</ul>
+</div></blockquote>
+<p>Intermediate stages are stored in temporary directories and are discarded</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the WAV file</p></li>
+<li><p><strong>out_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the output file</p></li>
+<li><p><strong>trs_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the transcription file (CSV or TextGrid)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.process.prosody.get_prosodic_info">
+<span class="sig-prename descclassname"><span class="pre">summ_re.process.prosody.</span></span><span class="sig-name descname"><span class="pre">get_prosodic_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">palign_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wav_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.process.prosody.get_prosodic_info" title="Link to this definition">#</a></dt>
+<dd><p>Create CSV files containing token-level prosodic information. They are <code class="docutils literal notranslate"><span class="pre">+duration</span></code>, <code class="docutils literal notranslate"><span class="pre">intensity</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pitch_range</span></code>, <code class="docutils literal notranslate"><span class="pre">pitch_slope</span></code> and <code class="docutils literal notranslate"><span class="pre">pitch_slope_no_jumps</span></code>. Praat is used under the hood</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>palign_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – Julius output file</p></li>
+<li><p><strong>wav_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – original WAV file</p></li>
+<li><p><strong>out_file</strong> – CSV files with columns <code class="docutils literal notranslate"><span class="pre">token</span></code>, <code class="docutils literal notranslate"><span class="pre">duration</span></code>, <code class="docutils literal notranslate"><span class="pre">intensity</span></code>, <code class="docutils literal notranslate"><span class="pre">pitch_range</span></code>,</p></li>
+</ul>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">pitch_slope</span></code> and <code class="docutils literal notranslate"><span class="pre">pitch_slope_no_jumps</span></code>
+:param window_size: size of the padding window before the start of the token to include
+:type window_size: int
+:returns: None
+:rtype: None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.process.recover_pauses.recover_pauses">
+<span class="sig-prename descclassname"><span class="pre">summ_re.process.recover_pauses.</span></span><span class="sig-name descname"><span class="pre">recover_pauses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wav_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.process.recover_pauses.recover_pauses" title="Link to this definition">#</a></dt>
+<dd><p>Apply second IPU annotation on individual IPUs separately (with more strict parameters) to recover smaller pauses.</p>
+<p>First IPU parameters should be set to capture broader patterns without picking up noises. Once non-speech zones
+are excluded by the first IPU annotation, this second IPU annotation should be applied to recover small pauses
+lost by first IPU annotation
+:param in_file: original IPU file
+:type in_file: Union[str, Path]
+:param out_file: updated IPU file
+:type out_file: Union[str, Path]
+:param wav_file: WAV file
+:type wav_file: Union[str, Path]
+:returns: None
+:rtype: None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.scripts.anonymization.anonymize.anonymize">
+<span class="sig-prename descclassname"><span class="pre">summ_re.scripts.anonymization.anonymize.</span></span><span class="sig-name descname"><span class="pre">anonymize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trs_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wav_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anon_trs_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anon_wav_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anonymize_wav</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.scripts.anonymization.anonymize.anonymize" title="Link to this definition">#</a></dt>
+<dd><p>todo
+:param trs_file: todo
+:param wav_file: todo
+:param anon_trs_file: todo
+:param anon_wav_file: todo
+:param name_file: todo
+:param anonymize_wav: todo</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.scripts.anonymization.find_candidates.find">
+<span class="sig-prename descclassname"><span class="pre">summ_re.scripts.anonymization.find_candidates.</span></span><span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summ_re.scripts.anonymization.find_candidates.find" title="Link to this definition">#</a></dt>
+<dd><p>Find all tokens that are <code class="docutils literal notranslate"><span class="pre">possibly</span></code> participant names. This is done by calculating Levenshtein distances between
+the true participant names (provided by <code class="docutils literal notranslate"><span class="pre">name_file</span></code>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – Token-level annotation file in CSV or TextGrid (Julius output)</p></li>
+<li><p><strong>out_file</strong> – <p>CSV file with columns:
+<cite>candidates</cite>: exact token level annotation that <strong>might</strong> correspond to a name</p>
+<blockquote>
+<div><p><cite>candidate_type</cite>: either <cite>name</cite> or <cite>surname</cite>
+<cite>id_list</cite>: participant ID
+<cite>originals</cite>: the original name/surname that the token was matched to
+<cite>speakers</cite>: anonymized speaker name in the form <cite>SPEAKER_&lt;speaker_number&gt;</cite></p>
+</div></blockquote>
+</p></li>
+<li><p><strong>name_file</strong> – file containing all participant names</p></li>
+<li><p><strong>meta_file</strong> – speaker metadata file</p></li>
+<li><p><strong>threshold</strong> – maximum Levenshtein distance to tolerate</p></li>
+<li><p><strong>print_all</strong> – if true, export data even if no match was found</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.scripts.overlap.backchannel.detect">
+<span class="sig-prename descclassname"><span class="pre">summ_re.scripts.overlap.backchannel.</span></span><span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tier_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'backchannel'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_words</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_speech</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.scripts.overlap.backchannel.detect" title="Link to this definition">#</a></dt>
+<dd><p>Detect backchannels based on <cite>KEYWORDS</cite>. Also it rejects non-words (defined in <cite>NON_WORDS</cite>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – annotation file (CSV or TextGrid)</p></li>
+<li><p><strong>out_file</strong> – SPPAS compatible annotation with either <code class="docutils literal notranslate"><span class="pre">backchannel</span></code> or <code class="docutils literal notranslate"><span class="pre">speech</span></code> instead of original</p></li>
+</ul>
+</dd>
+</dl>
+<p>transcription
+:param max_len: maximum length (in tokens) of utterance backchannels are allowed to have
+:type max_len: int
+:param tier_name: name of the tier
+:type tier_name: str
+:param keep_words: if true, original backchannel words are retained, otherwise they are replaced by <code class="docutils literal notranslate"><span class="pre">backchannel</span></code>
+:type keep_words: bool
+:param keep_speech: if true, original speech words are retained, otherwise they are replaced by <code class="docutils literal notranslate"><span class="pre">speech</span></code>
+:type keep_speech: bool
+:returns: None
+:rtype: None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.scripts.overlap.by_type.detect">
+<span class="sig-prename descclassname"><span class="pre">summ_re.scripts.overlap.by_type.</span></span><span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_backchannel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.scripts.overlap.by_type.detect" title="Link to this definition">#</a></dt>
+<dd><p>Detect two types of overlaps: full overlap and partial overlap</p>
+<p>Full overlap
+Speaker 1 and 2 fully overlap when speech of one is fully inside speech of another</p>
+<p>e.g.</p>
+<p><a href="#id1"><span class="problematic" id="id2">|------------------------------- SPEAKER_1 -------------------------------|</span></a></p>
+<blockquote>
+<div><p><a href="#id3"><span class="problematic" id="id4">|---- SPEAKER_2 ----|</span></a></p>
+<p><a href="#id5"><span class="problematic" id="id6">|--- full overlap --|</span></a></p>
+</div></blockquote>
+<p>Output file names are in the format <cite>&lt;first speaker ID&gt;-&lt;second speaker ID&gt;.&lt;csv/TextGrid&gt;</cite>
+Output file is a SPPAS compatible annotation file with annotations corresponding to all <cite>SPEAKER_2</cite>’s speech that
+fall within <cite>SPEAKER_1</cite>’s speech
+Annotations are marked <cite>speech</cite> or <cite>backchannel</cite></p>
+<p>Partial overlap
+Speaker 1 and 2 partially overlap if either speaker 1 starts speaking before speaker 2 has terminated (start) or
+conversely, speaker 2 starts speaking before speaker 1 has terminated (end)</p>
+<p>e.g.
+start overlap</p>
+<p><a href="#id7"><span class="problematic" id="id8">|--------------------------- SPEAKER_1 ---------------------------|</span></a></p>
+<p>– SPEAKER_2 —|</p>
+<p><a href="#id9"><span class="problematic" id="id10">|----- PO ------|</span></a></p>
+<p>end overlap</p>
+<p><a href="#id11"><span class="problematic" id="id12">|--------------------------- SPEAKER_1 ---------------------------|</span></a></p>
+<blockquote>
+<div><p><a href="#id13"><span class="problematic" id="id14">|---------------- SPEAKER_2 ----------------|</span></a></p>
+<p><a href="#id15"><span class="problematic" id="id16">|-- PO --|</span></a></p>
+</div></blockquote>
+<p>Same naming convention as for full overlap
+Annotations contain either <cite>start</cite> for start overlap or <cite>end</cite> for end overlap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_dir</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to directory containing output of backchannel annotation files</p></li>
+<li><p><strong>out_dir</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to directory to save the result</p></li>
+<li><p><strong>ext</strong> (<em>str</em>) – extension, <code class="docutils literal notranslate"><span class="pre">csv</span></code> and <code class="docutils literal notranslate"><span class="pre">TextGrid</span></code> are allowed</p></li>
+<li><p><strong>include_backchannel</strong> (<em>bool</em>) – if true, backchannel intervals are treated like speech</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.scripts.overlap.complete.detect_by_step">
+<span class="sig-prename descclassname"><span class="pre">summ_re.scripts.overlap.complete.</span></span><span class="sig-name descname"><span class="pre">detect_by_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_backchannel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tier_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'overlap'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count_partial_overlap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#summ_re.scripts.overlap.complete.detect_by_step" title="Link to this definition">#</a></dt>
+<dd><p>Detect number of speakers speaking at the moment by taking <code class="docutils literal notranslate"><span class="pre">window_size</span></code> window at each location and counting
+the number of speakers speaking in that time window</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_dir</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to directory containing backchannel annotations</p></li>
+<li><p><strong>out_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – same as detect() function below</p></li>
+<li><p><strong>include_backchannel</strong> (<em>bool</em>) – if true, treat backchannels as speech</p></li>
+<li><p><strong>tier_name</strong> (<em>str</em>) – name of the tier</p></li>
+<li><p><strong>window_size</strong> (<em>float</em>) – size of the window to take in seconds</p></li>
+<li><p><strong>count_partial_overlap</strong> (<em>bool</em>) – if true, partially overlapping speech</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.scripts.pipeline.get_main_speaker.get_main_speaker">
+<span class="sig-prename descclassname"><span class="pre">summ_re.scripts.pipeline.get_main_speaker.</span></span><span class="sig-name descname"><span class="pre">get_main_speaker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diarization_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wav_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intensity_threshold_upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intensity_threshold_lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_threshold_upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_threshold_lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#summ_re.scripts.pipeline.get_main_speaker.get_main_speaker" title="Link to this definition">#</a></dt>
+<dd><p>Determine the ID of the main speaker in the pyannote diarization file (which is in CSV file format)
+Returns main_speaker ID (e.g. <code class="docutils literal notranslate"><span class="pre">SPEAKER_00</span></code>), list of other candidates if they exist (e.g.
+<code class="docutils literal notranslate"><span class="pre">SPEAKER_01;SPEAKER_02</span></code>) and if loud and short intervals exist (if true, this may be a sign of main speaker
+being assigned to multiple IDs)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>diarization_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the pyannote diarization file in CSV format</p></li>
+<li><p><strong>wav_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – path to the WAV file</p></li>
+<li><p><strong>intensity_threshold_upper</strong> (<em>float</em>) – intensity threshold for loud and short intervals</p></li>
+<li><p><strong>intensity_threshold_lower</strong> (<em>float</em>) – intensity threshold for candidates</p></li>
+<li><p><strong>duration_threshold_upper</strong> (<em>float</em>) – duration threshold for loud and short intervals</p></li>
+<li><p><strong>duration_threshold_lower</strong> (<em>float</em>) – minimum duration in seconds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>todo</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[str, str, bool]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.csv_to_textgrid">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">csv_to_textgrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_file:</span> <span class="pre">~pathlib.Path</span> <span class="pre">|</span> <span class="pre">str,</span> <span class="pre">out_file:</span> <span class="pre">[&lt;class</span> <span class="pre">'pathlib.Path'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;],</span> <span class="pre">min_duration=0.02</span></em><span class="sig-paren">)</span><a class="headerlink" href="#summ_re.utils.conversion.csv_to_textgrid" title="Link to this definition">#</a></dt>
+<dd><p>Convert CSV file to TextGrid file using SPPAS
+:param in_file: path to the file to be converted
+:param out_file: path to the directory to save the result in
+:param min_duration: minimum duration of the interval in seconds (needed for SPPAS to recognize it as an interval)
+:return:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.textgrid_to_csv">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">textgrid_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_file:</span> <span class="pre">~pathlib.Path</span> <span class="pre">|</span> <span class="pre">str,</span> <span class="pre">out_file:</span> <span class="pre">[&lt;class</span> <span class="pre">'pathlib.Path'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#summ_re.utils.conversion.textgrid_to_csv" title="Link to this definition">#</a></dt>
+<dd><p>Convert TextGrid file to CSV file
+:param in_file: path to textgrid file
+:param out_file: path to output CSV file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">textgrid_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">in_file:</span> <span class="pre">~pathlib.Path</span> <span class="pre">|</span> <span class="pre">str,</span> <span class="pre">out_file:</span> <span class="pre">[&lt;class</span> <span class="pre">'pathlib.Path'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'str'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
+<dd><p>Convert TextGrid file to CSV file
+:param in_file: path to textgrid file
+:param out_file: path to output CSV file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.filter_out_segment_text_whisper_hallucinations">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">filter_out_segment_text_whisper_hallucinations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summ_re.utils.conversion.filter_out_segment_text_whisper_hallucinations" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.clean_whisper">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">clean_whisper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_hallu_regex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summ_re.utils.conversion.clean_whisper" title="Link to this definition">#</a></dt>
+<dd><p>Remove unwanted symbols (non-latin alphabet, emojis, name of the subtitle websites etc.) from the Whisper
+annotation in the JSON format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> – path to the JSON file</p></li>
+<li><p><strong>out_file</strong> – path to the cleaned JSON file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.linstt_to_csv">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">linstt_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">word_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'words'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summ_re.utils.conversion.linstt_to_csv" title="Link to this definition">#</a></dt>
+<dd><p>Convert LinSTT style JSON annotation file into SPPAS compatible CSV file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> – path to JSON file</p></li>
+<li><p><strong>out_file</strong> – path to output CSV file</p></li>
+<li><p><strong>min_duration</strong> – minimum duration for the intervals (needed for SPPAS), default is 0.01 seconds</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.pyannote_to_csv">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">pyannote_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tier_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pyannote'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summ_re.utils.conversion.pyannote_to_csv" title="Link to this definition">#</a></dt>
+<dd><p>Convert pyannote annotation JSON file to SPPAS compatible CSV file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> – path to pyannote JSON file</p></li>
+<li><p><strong>out_file</strong> – path to output file in CSV format</p></li>
+<li><p><strong>tier_name</strong> – name of the tier in which annotation will be saved, default is ‘pyannote’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.du_to_csv">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">du_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">du_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_tier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">du_tier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summ_re.utils.conversion.du_to_csv" title="Link to this definition">#</a></dt>
+<dd><p>Convert DU annotation from TextGrid to three CSV files: token CSV, DU CSV and combined CSV
+Examples:</p>
+<p><em>Token CSV</em>
+| start | end  | token   |
+| 0.0   | 0.5  | #       |
+| 0.5   | 0.75 | bonjour |
+| 0.75  | 1.25 | #       |
+| 1.25  | 1.5  | ça      |
+| 1.5   | 1.6  | va      |</p>
+<p><em>DU CSV</em>
+| start | end  | token   |
+| 0.5   | 0.75 | du      |
+| 0.75  | 1.25 |         |
+| 1.25  | 1.6  | du      |</p>
+<p><em>Combined CSV</em>
+| start | end  | token   | start_du | end_du |
+| 0.0   | 0.5  | #       | false    | false  |
+| 0.5   | 0.75 | bonjour | true     | true   |
+| 0.75  | 1.25 | #       | false    | false  |
+| 1.25  | 1.5  | ça      | true     | false  |
+| 1.5   | 1.6  | va      | false    | true   |</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> – path to the DU annotation in TextGrid format</p></li>
+<li><p><strong>dst_dir</strong> – path to the directory in which all three output files will be saved</p></li>
+<li><p><strong>token_file</strong> – name of the token CSV file</p></li>
+<li><p><strong>du_file</strong> – name of the DU CSV file</p></li>
+<li><p><strong>final_file</strong> – name of the combined CSV file</p></li>
+<li><p><strong>token_tier</strong> – name of the tier in which tokens are saved in the original TextGrid</p></li>
+<li><p><strong>du_tier</strong> – name of the tier in which DUs are saved in the original TextGrid</p></li>
+<li><p><strong>rtol</strong> – relative tolerance level for floating point comparison (to check if borders match), default 1e-5</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.fill_missing">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">fill_missing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#summ_re.utils.conversion.fill_missing" title="Link to this definition">#</a></dt>
+<dd><p>Fill missing intervals caused by dropping invalid ones by placing <cite>fill_symbol</cite> in between
+:param df: dataframe to fill
+:param target: target annotation (e.g. ‘ipu’), if None, everything will be processed
+:param fill_symbol: symbol used to fill the missing interval, default is ‘#’
+:param min_duration: minimum duration of the intervals in seconds (needed for SPPAS), default = 0.01
+:return: dataframe</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.merge_rows">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">merge_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#summ_re.utils.conversion.merge_rows" title="Link to this definition">#</a></dt>
+<dd><p>Merge adjacent intervals if they are both ‘#’
+:param df: dataframe to perform merging on
+:return: merged dataframe</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.du_to_tok">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">du_to_tok</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summ_re.utils.conversion.du_to_tok" title="Link to this definition">#</a></dt>
+<dd><p>Convert DU annotations (inferred from the tokens) to <cite>.tok</cite> file. The file takes the form of</p>
+<p># new_doc id = IPU_{threshold}:1
+1   word    -       -       -       -       -       -       -       BeginSeg=Yes
+2   word    -       -       -       -       -       -       -       -
+3   ,       -   -   -   -   -   -   -   -
+4   word    -       -       -       -       -       -       -       BeginSeg=Yes</p>
+<p># new_doc id = IPU_{threshold}:2
+…</p>
+<p><cite>,</cite> indicates a short pause (&lt; threshold) while new document is generated after longer pauses (&gt; threshold)
+Short pauses are taken to be the beginning of a DU and is marked by <cite>BeginSeg=Yes</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_file</strong> – paligned annotation file in either CSV or TextGrid</p></li>
+<li><p><strong>out_file</strong> – path to output file in <cite>.tok</cite></p></li>
+<li><p><strong>threshold</strong> – pause threshold in seconds</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="summ_re.utils.conversion.cid_du_to_tok">
+<span class="sig-prename descclassname"><span class="pre">summ_re.utils.conversion.</span></span><span class="sig-name descname"><span class="pre">cid_du_to_tok</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summ_re.utils.conversion.cid_du_to_tok" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd>
+</dl>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Hiro Yamasaki
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">API</a><ul>
+<li><a class="reference internal" href="#summ_re.process.align_whisper.align_whisper"><code class="docutils literal notranslate"><span class="pre">align_whisper()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.process.annotate_ipu.annotate_ipus"><code class="docutils literal notranslate"><span class="pre">annotate_ipus()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.process.combine_ipu_annotation.combine_annotation"><code class="docutils literal notranslate"><span class="pre">combine_annotation()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.process.ipu_from_pyannote.ipu_from_pyannote"><code class="docutils literal notranslate"><span class="pre">ipu_from_pyannote()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.process.palign.palign"><code class="docutils literal notranslate"><span class="pre">palign()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.process.prosody.get_prosodic_info"><code class="docutils literal notranslate"><span class="pre">get_prosodic_info()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.process.recover_pauses.recover_pauses"><code class="docutils literal notranslate"><span class="pre">recover_pauses()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.scripts.anonymization.anonymize.anonymize"><code class="docutils literal notranslate"><span class="pre">anonymize()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.scripts.anonymization.find_candidates.find"><code class="docutils literal notranslate"><span class="pre">find()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.scripts.overlap.backchannel.detect"><code class="docutils literal notranslate"><span class="pre">detect()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.scripts.overlap.by_type.detect"><code class="docutils literal notranslate"><span class="pre">detect()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.scripts.overlap.complete.detect_by_step"><code class="docutils literal notranslate"><span class="pre">detect_by_step()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.scripts.pipeline.get_main_speaker.get_main_speaker"><code class="docutils literal notranslate"><span class="pre">get_main_speaker()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.csv_to_textgrid"><code class="docutils literal notranslate"><span class="pre">csv_to_textgrid()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.textgrid_to_csv"><code class="docutils literal notranslate"><span class="pre">textgrid_to_csv()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">textgrid_to_csv()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.filter_out_segment_text_whisper_hallucinations"><code class="docutils literal notranslate"><span class="pre">filter_out_segment_text_whisper_hallucinations()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.clean_whisper"><code class="docutils literal notranslate"><span class="pre">clean_whisper()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.linstt_to_csv"><code class="docutils literal notranslate"><span class="pre">linstt_to_csv()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.pyannote_to_csv"><code class="docutils literal notranslate"><span class="pre">pyannote_to_csv()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.du_to_csv"><code class="docutils literal notranslate"><span class="pre">du_to_csv()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.fill_missing"><code class="docutils literal notranslate"><span class="pre">fill_missing()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.merge_rows"><code class="docutils literal notranslate"><span class="pre">merge_rows()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.du_to_tok"><code class="docutils literal notranslate"><span class="pre">du_to_tok()</span></code></a></li>
+<li><a class="reference internal" href="#summ_re.utils.conversion.cid_du_to_tok"><code class="docutils literal notranslate"><span class="pre">cid_du_to_tok()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>

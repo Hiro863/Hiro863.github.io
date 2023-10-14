@@ -1,0 +1,29 @@
+﻿summ\_re.process.annotate\_ipu
+==============================
+
+.. automodule:: summ_re.process.annotate_ipu
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      annotate_ipus
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,29 @@
+﻿summ\_re.process.ipu\_from\_pyannote
+====================================
+
+.. automodule:: summ_re.process.ipu_from_pyannote
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      ipu_from_pyannote
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
